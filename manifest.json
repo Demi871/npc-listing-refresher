@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "NPC Listing Refresher",
+  "version": "1.0.0",
+  "description": "Refreshes Nigeria Property Centre property listings.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://nigeriapropertycentre.com/*"
+  ],
+
+  "action": {
+  "default_popup": "popup.html",
+  "default_icon": {
+    "16": "icons/house-square.png",
+    "32": "icons/house-square.png",
+    "48": "icons/house-square.png",
+    "128": "icons/house-square.png"
+  }
+},
+"icons": {
+  "16": "icons/house-square.png",
+  "32": "icons/house-square.png",
+  "48": "icons/house-square.png",
+  "128": "icons/house-square.png"
+},
+  "content_scripts": [
+    {
+      "matches": [
+        "https://nigeriapropertycentre.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}

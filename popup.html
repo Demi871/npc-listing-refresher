@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NPC Refresher</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 280px;
+        }
+
+        body {
+            padding: 18px;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            font-size: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .speed-control {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        #speedButton {
+            width: 100%;
+            height: 38px;
+            padding: 0 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            background: white;
+            text-align: left;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        #speedButton:hover {
+            border-color: #9ca3af;
+        }
+
+        #speedOptions {
+            display: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 43px;
+            z-index: 9999;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        #speedOptions.show {
+            display: block;
+        }
+
+        .speed-option {
+            padding: 9px 12px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .speed-option:hover {
+            background: #f3f4f6;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        #refreshButton,
+        #stopButton {
+            height: 40px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #refreshButton {
+            flex: 1;
+            background: #dc2626;
+        }
+
+        #refreshButton:hover {
+            background: #b91c1c;
+        }
+
+        #stopButton {
+            width: 70px;
+            background: #374151;
+        }
+
+        #stopButton:hover {
+            background: #1f2937;
+        }
+
+        #refreshButton:disabled,
+        #stopButton:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #status {
+            margin-top: 14px;
+            text-align: center;
+            font-size: 13px;
+            min-height: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>🏠 NPC Refresher</h2>
+
+    <label>Delay between listings</label>
+
+    <div class="speed-control">
+
+        <button id="speedButton" type="button">
+            5 seconds
+        </button>
+
+        <div id="speedOptions">
+
+            <div class="speed-option" data-delay="1000">
+                1 second
+            </div>
+
+            <div class="speed-option" data-delay="2000">
+                2 seconds
+            </div>
+
+            <div class="speed-option" data-delay="3000">
+                3 seconds
+            </div>
+
+            <div class="speed-option" data-delay="5000">
+                5 seconds
+            </div>
+
+            <div class="speed-option" data-delay="10000">
+                10 seconds
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="button-row">
+
+        <button id="refreshButton" type="button">
+            ▶ Start Refresh
+        </button>
+
+        <button id="stopButton" type="button">
+            ■ Stop
+        </button>
+
+    </div>
+
+    <div id="status">Ready</div>
+
+    <script src="popup.js"></script>
+
+</body>
+</html>
